@@ -94,7 +94,7 @@ class GuestController extends Controller
             ->with('success', 'Record deleted successfully.');
     }
 
-    public function forceDelete($id)
+    public function forceDelete(string $id)
     {
         $guest = Guest::onlyTrashed()->findOrFail($id);
 

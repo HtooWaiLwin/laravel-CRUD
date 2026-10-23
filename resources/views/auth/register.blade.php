@@ -6,52 +6,177 @@
     <title>Register</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 40px;
-        }
+        
+* {
+    box-sizing: border-box;
+}
 
-        h1 {
-            text-align: center;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    margin: 0;
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.6;
+}
 
-        form {
-            background: white;
-            max-width: 350px;
-            margin: 20px auto;
-            padding: 25px;
-            border-radius: 8px;
-        }
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    margin: auto;
+    padding: 36px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.07);
+}
 
-        input:not([type="checkbox"]) {
-            width: 100%;
-            padding: 8px;
-            margin: 8px 0 15px;
-            box-sizing: border-box;
-        }
+h1 {
+    margin: 0 0 26px;
+    color: #0f172a;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.7px;
+    line-height: 1.3;
+}
 
-        button {
-            width: 100%;
-            padding: 10px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+form {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
 
-        button:hover {
-            background: #1d4ed8;
-        }
+.form-group {
+    margin-bottom: 19px;
+}
 
-        p {
-            text-align: center;
-        }
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+}
 
-        a {
-            color: #2563eb;
-        }
+input:not([type="checkbox"]) {
+    display: block;
+    width: 100%;
+    min-height: 45px;
+    margin: 0;
+    padding: 11px 13px;
+    color: #1e293b;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+input:not([type="checkbox"])::placeholder {
+    color: #94a3b8;
+}
+
+input:not([type="checkbox"]):hover {
+    border-color: #94a3b8;
+}
+
+input:not([type="checkbox"]):focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: #2563eb;
+    color: #ffffff;
+    border: 1px solid #2563eb;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.alert {
+    margin: 0 0 20px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.alert li + li {
+    margin-top: 4px;
+}
+
+.alert.success {
+    color: #166534;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #22c55e;
+}
+
+.alert.error {
+    color: #b91c1c;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #ef4444;
+}
+
+.footer {
+    margin: 25px 0 0;
+    color: #64748b;
+    font-size: 13px;
+    text-align: center;
+}
+
+a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
     </style>
 </head>
 <body>

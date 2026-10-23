@@ -7,125 +7,216 @@
     <title>Deleted Guests</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            color: #333;
-            margin: 30px;
-        }
+        
+* {
+    box-sizing: border-box;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 25px;
-            background: white;
-            border-radius: 8px;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    margin: 0;
+    padding: 40px 24px;
+    line-height: 1.6;
+}
 
-        h2 {
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+}
 
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
+h2 {
+    margin: 0 0 22px;
+    color: #0f172a;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease, background 0.2s ease;
+}
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 15px;
-        }
+a:hover {
+    color: #1d4ed8;
+    text-decoration: none;
+}
 
-        .table-wrapper {
-            overflow-x: auto;
-        }
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 22px;
+    padding: 9px 14px;
+    background: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background: white;
-        }
+.back-link:hover {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px 14px;
-            text-align: left;
-        }
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+}
 
-        th {
-            background: #f4f4f4;
-        }
+table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0;
+    background: #ffffff;
+}
 
-        tr:hover {
-            background: #fafafa;
-        }
+th,
+td {
+    padding: 15px 18px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9eef5;
+}
 
-        img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
+th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    white-space: nowrap;
+}
 
-        .actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            white-space: nowrap;
-        }
+td {
+    color: #334155;
+    font-size: 14px;
+}
 
-        .actions form {
-            display: inline;
-            margin: 0;
-        }
+tbody tr {
+    transition: background 0.2s ease;
+}
 
-        button {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+tbody tr:hover {
+    background: #f8fbff;
+}
 
-        .restore-btn {
-            background: #2563eb;
-            color: white;
-        }
+tbody tr:last-child td {
+    border-bottom: none;
+}
 
-        .restore-btn:hover {
-            background: #1d4ed8;
-        }
+td img {
+    display: block;
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    background: #f1f5f9;
+}
 
-        .delete-btn {
-            background: #dc2626;
-            color: white;
-        }
+.actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    white-space: nowrap;
+}
 
-        .delete-btn:hover {
-            background: #b91c1c;
-        }
+.actions form {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+}
 
-        .success {
-            padding: 10px;
-            background: #dcfce7;
-            color: #166534;
-            border-radius: 4px;
-        }
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 14px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
 
-        @media (max-width: 600px) {
-            body {
-                margin: 10px;
-            }
+button:hover {
+    transform: translateY(-1px);
+}
 
-            .container {
-                padding: 15px;
-            }
-        }
+button:active {
+    transform: translateY(0);
+}
+
+.restore-btn {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+.restore-btn:hover {
+    background: #dbeafe;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.12);
+}
+
+.delete-btn {
+    background: #fef2f2;
+    color: #dc2626;
+    border-color: #fecaca;
+}
+
+.delete-btn:hover {
+    background: #fee2e2;
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.1);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.success {
+    margin: 18px 0;
+    padding: 13px 16px;
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #22c55e;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.container > p:not(.success) {
+    color: #64748b;
+    font-size: 14px;
+}
+
     </style>
 </head>
 

@@ -7,144 +7,236 @@
     <title>Guest Posts</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            color: #333;
-            margin: 30px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 25px;
-            background: white;
-            border-radius: 8px;
-        }
-
-        h2 {
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .top-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 9px 14px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font: inherit;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background: #1d4ed8;
-            text-decoration: none;
-        }
-
-        .delete-btn {
-            background: #dc2626;
-            font-size: 14px;
-        }
-
-        .delete-btn:hover {
-            background: #b91c1c;
-        }
-
-        .edit-btn {
-            background: #2563eb;
-            font-size: 14px;
-        }
         
-        .edit-btn:hover {
-            background: #1d4ed8;
-        }
-        
-        .post-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-        
-        .post-actions form {
-            margin: 0;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .message {
-            padding: 10px;
-            background: #dcfce7;
-            color: #166534;
-            border-radius: 4px;
-            margin: 15px 0;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    margin: 0;
+    padding: 40px 24px;
+    line-height: 1.6;
+}
 
-        .post {
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 18px;
-            margin-bottom: 15px;
-        }
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+}
 
-        .post-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #eee;
-        }
+h2 {
+    margin: 0 0 24px;
+    color: #0f172a;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    overflow-wrap: anywhere;
+}
 
-        .post h3 {
-            margin: 0;
-            font-size: 18px;
-            overflow-wrap: anywhere;
-        }
+a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+}
 
-        .post form {
-            margin: 0;
-            flex-shrink: 0;
-        }
+a:hover {
+    color: #1d4ed8;
+    text-decoration: none;
+}
 
-        .description {
-            margin-top: 12px;
-            color: #555;
-            line-height: 1.6;
-            white-space: pre-wrap;
-            overflow-wrap: anywhere;
-        }
+.top-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 26px;
+}
 
-        @media (max-width: 600px) {
-            body {
-                margin: 10px;
-            }
+.top-actions > a:not(.btn) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 9px 14px;
+    color: #475569;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
 
-            .container {
-                padding: 15px;
-            }
+.top-actions > a:not(.btn):hover {
+    color: #1d4ed8;
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
 
-            .post-header {
-                align-items: flex-start;
-            }
-        }
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 9px 15px;
+    background: #2563eb;
+    color: #ffffff;
+    border: 1px solid #2563eb;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+    color: #ffffff;
+    border-color: #1d4ed8;
+    text-decoration: none;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.edit-btn {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+.edit-btn:hover {
+    background: #dbeafe;
+    color: #1e40af;
+    border-color: #93c5fd;
+}
+
+.delete-btn {
+    background: #fef2f2;
+    color: #dc2626;
+    border-color: #fecaca;
+    font-size: 13px;
+}
+
+.delete-btn:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #fca5a5;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.post-actions form {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.message {
+    margin: 18px 0 24px;
+    padding: 13px 16px;
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #22c55e;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.post {
+    margin-bottom: 18px;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.post:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 5px 16px rgba(15, 23, 42, 0.045);
+}
+
+.post:last-child {
+    margin-bottom: 0;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e9eef5;
+}
+
+.post h3 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    min-width: 0;
+}
+
+.post form {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.description {
+    margin-top: 16px;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.85;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.container > p {
+    margin: 24px 0 0;
+    padding: 22px;
+    color: #64748b;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
     </style>
 </head>
 
